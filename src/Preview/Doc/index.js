@@ -10,7 +10,12 @@ class Doc extends React.Component {
     const { contentWindow } = this._iframe
     contentWindow.addEventListener('load', () => {
       if (anchor) {
-        contentWindow.location.hash = anchor
+          //锚点定位
+          //方案一:anchor
+        // contentWindow.location.hash = anchor
+          // 方案二:scrollIntoView
+          // 方案一会导致部分页面自动聚焦
+        contentWindow.document.querySelector(anchor).scrollIntoView(true);
       }
 
       each(this._iframe.contentDocument.links, (link) => {
