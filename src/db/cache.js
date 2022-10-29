@@ -1,8 +1,10 @@
-const { remote } = require('electron')
+const os = require("os");
+const userHomeDir = os.homedir();
 const fs = require('fs')
 const path = require('path')
 
-const CACHE_FILE = path.join(remote.app.getPath('userData'), 'devdocs.json')
+const CACHE_FILE = path.join(userHomeDir+"/.cache/cerebro/", 'devdocs.json')
+console.log(CACHE_FILE)
 const cacheOptions = {
   encoding: 'utf-8'
 }
